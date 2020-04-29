@@ -51,11 +51,11 @@ if __name__ == '__main__':
                 serverName = sevrConfig[indexof]
                 
                 print('[{}]{}'.format(serverName, ip))
+                pFList[indexof].write(ip+'\n')
             else:
                 indexof = sevrConfig.index('Other')
                 print('[Other]{}'.format(ip))
-            
-            pFList[indexof].write(ip+'\r\n')
+                pFList[indexof].write(ip+':'+port+'\n')
 
         pFile.close()
         for pF in pFList:
