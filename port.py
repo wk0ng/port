@@ -12,8 +12,8 @@ def clearChar(chars):
     return data
 
 def loadConfig():
-    sevrConfig = 'SSH:RDP:SMB:MySQL:SQLServer:Oracle:FTP:MongoDB:Memcached:PostgreSQL:Telnet:SMTP:SMTP_SSL:POP3:POP3_SSL:IMAP:IMAP_SSL:VNC:Redis'
-    portConfig = '22:3389:445:3306:1433:1521:21:27017:11211:5432:23:25:465:110:995:143:993:5900:6379'
+    sevrConfig = 'SSH:RDP:SMB:MySQL:SQLServer:Oracle:FTP:MongoDB:Memcached:PostgreSQL:Telnet:SMTP:SMTP_SSL:POP3:POP3_SSL:IMAP:IMAP_SSL:VNC:Redis:Weblogic'
+    portConfig = '22:3389:445:3306:1433:1521:21:27017:11211:5432:23:25:465:110:995:143:993:5900:6379:7001'
 
     sevrConfig = sevrConfig.split(':')
     portConfig = portConfig.split(':')
