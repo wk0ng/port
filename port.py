@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 # Author : wkong
 # Cleared port info
 import os
@@ -24,18 +24,19 @@ def loadConfig():
 
 if __name__ == '__main__':
     try:
-        if not os.path.exists('port'):
-            os.makedirs('port')
-
-        pFList = []
+        
         fileName = sys.argv[1]
 
+        if not os.path.exists(fileName+'_port'):
+            os.makedirs(fileName+'_port')
+
+        pFList = []
         sevrConfig, portConfig = loadConfig()
 
         pFile = open(fileName, 'r')
 
         for sevr in sevrConfig:
-            pFList.append(open('port/'+sevr+'.txt', 'w+'))
+            pFList.append(open(fileName+'_port/'+sevr+'.txt', 'w+'))
 
         lines = pFile.readlines()
 
