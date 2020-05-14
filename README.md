@@ -13,3 +13,13 @@
 ```
 python port.py xxx.txt
 ```
+# 更新日志
+
+### 2020.05.14
+```
+1. 删除空结果文件
+2. 清除每条记录输出
+3. 增加服务统计
+4. 删除Linux 版打包程序
+```
+![2020.05.14_update](https://github.com/wk0ng/.image/blob/master/update_2020_0514_09_28.png)
