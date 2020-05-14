@@ -24,7 +24,6 @@ def loadConfig():
 
 if __name__ == '__main__':
     try:
-        
         fileName = sys.argv[1]
 
         if not os.path.exists(fileName+'_port'):
@@ -42,24 +41,34 @@ if __name__ == '__main__':
 
         for line in lines:
             line = clearChar(line)
-            line = line.split(':')
+            if len(line) > 8:
+                line = line.split(':')
+                ip = line[0]
+                port = line[1]
 
-            ip = line[0]
-            port = line[1]
-
-            if port in portConfig:
-                indexof = portConfig.index(port)
-                serverName = sevrConfig[indexof]
-                
-                print('[{}]{}'.format(serverName, ip))
-                pFList[indexof].write(ip+'\n')
-            else:
-                indexof = sevrConfig.index('Other')
-                print('[Other]{}'.format(ip))
-                pFList[indexof].write(ip+':'+port+'\n')
+                if port in portConfig:
+                    indexof = portConfig.index(port)
+                    serverName = sevrConfig[indexof]
+                    
+                    #print('[{}]{}'.format(serverName, ip))
+                    pFList[indexof].write(ip+'\n')
+                else:
+                    indexof = sevrConfig.index('Other')
+                    #print('[Other]{}'.format(ip))
+                    pFList[indexof].write(ip+':'+port+'\n')
 
         pFile.close()
         for pF in pFList:
             pF.close()
+
+        for sevr in sevrConfig:
+            if os.path.getsize(fileName+'_port/'+sevr+'.txt') == 0:
+                os.remove(fileName+'_port/'+sevr+'.txt')
+            else:
+                pFile = open(fileName+'_port/'+sevr+'.txt','r')
+                lines = pFile.readlines()
+
+                print(sevr + ' has ' + str(len(lines)) + ' rows.' )
     except Exception as err:
         print('Useage: python port.py port.txt')
+        print(err)
